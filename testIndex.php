@@ -15,6 +15,7 @@
 include 'functions.php';
 include 'databaseconnection.php';
 include 'filing.php';
+include 'calculator.php';
 class testIndex extends PHPUnit_Framework_TestCase{
     //put your code here
     public function testgarbage()
@@ -62,6 +63,14 @@ class testIndex extends PHPUnit_Framework_TestCase{
     public function testfileread()
     {
         $res=fileread('C:\xampp\htdocs\PhpProjectHello_World\filetext.txt');
+        $this->assertEquals(true,$res);
+    }
+    /**
+     * Description: Checking namespace
+     */
+    public function testnamespace()
+    {
+        $res= \calculator\namespacechecking();
         $this->assertEquals(true,$res);
     }
 }
