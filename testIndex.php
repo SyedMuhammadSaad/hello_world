@@ -14,6 +14,7 @@
 
 include 'functions.php';
 include 'databaseconnection.php';
+include 'filing.php';
 class testIndex extends PHPUnit_Framework_TestCase{
     //put your code here
     public function testgarbage()
@@ -46,5 +47,21 @@ class testIndex extends PHPUnit_Framework_TestCase{
     {
         $res=  connectdb('mytestdatabase1');
         $this->assertEquals('Connected with db',$res);
+    }
+    /**
+     * Description: Testing the filewrite function
+     */
+    public function testfilewrite()
+    {
+        $res=  filewrite();
+        $this->assertEquals('File written',$res);
+    }
+    /**
+     * Description: Checks for fileread function
+     */
+    public function testfileread()
+    {
+        $res=fileread('C:\xampp\htdocs\PhpProjectHello_World\filetext.txt');
+        $this->assertEquals(true,$res);
     }
 }
