@@ -13,6 +13,7 @@
  */
 
 include 'functions.php';
+include 'databaseconnection.php';
 class testIndex extends PHPUnit_Framework_TestCase{
     //put your code here
     public function testgarbage()
@@ -37,5 +38,13 @@ class testIndex extends PHPUnit_Framework_TestCase{
     {
         $res=addintstring();
         $this->assertEquals('420 is not stupid',$res);
+    }
+    /**
+     * Description: testing connection with db
+     */
+    public function testdatabaseconnection()
+    {
+        $res=  connectdb('mytestdatabase1');
+        $this->assertEquals('Connected with db',$res);
     }
 }
