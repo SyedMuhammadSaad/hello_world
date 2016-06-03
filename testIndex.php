@@ -16,6 +16,7 @@ include 'functions.php';
 include 'databaseconnection.php';
 include 'filing.php';
 include 'calculator.php';
+include 'socket.php';
 class testIndex extends PHPUnit_Framework_TestCase{
     //put your code here
     public function testgarbage()
@@ -71,6 +72,14 @@ class testIndex extends PHPUnit_Framework_TestCase{
     public function testnamespace()
     {
         $res= \calculator\namespacechecking();
+        $this->assertEquals(true,$res);
+    }
+    /**
+     * Description: Server Connecting to client
+     */
+    public function testsocketserver()
+    {
+        $res= socketserver('127.0.0.1');
         $this->assertEquals(true,$res);
     }
 }
