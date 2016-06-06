@@ -1,11 +1,4 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Interface Implemented
  */
@@ -19,6 +12,10 @@ interface MotorCycleFrame
 }
 class MountainBike implements MotorCycleFrame
 {
+    /**
+     *
+     * @var string 
+     */
     private $brandName;
     /**
      * Printing some lines
@@ -34,6 +31,10 @@ class MountainBike implements MotorCycleFrame
 }
 class RoadBike implements MotorCycleFrame
 {
+    /**
+     *
+     * @var string
+     */
     private $brandName;
     /**
      * Printing some lines
@@ -46,7 +47,4 @@ class RoadBike implements MotorCycleFrame
         return $brandName;
     }
 }
-
-
-
 ?>

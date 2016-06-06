@@ -1,74 +1,41 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Abstraction Performed
+ * Abstract Class
  */
 abstract class Frame
 {
     /**
-     * Abstract Function
-     * @param type $param
+     * Empty Function in Frame class
+     * @param string $param
      */
     public function draw($param)
     {}
+    /**
+     * Function which is not being used in any other class
+     */
+    public function buildframe()
+    {
+        echo "From Frame class!";
+    }
 }
 
 class CarsFrame extends Frame
 {
+    /**
+     *
+     * @var string
+     */
     private $brandName;
     /**
      * Function being used from abstract class
      * @param string $name
+     * @return string
      */
     public function draw($name) {
         parent::draw($name);
         $brandName=$name;
         echo "$brandName car frame built.";
+        return $this->brandName;
     }
 }
-
-/**
- * Interface Implemented
- */
-interface MotorCycleFrame
-{
-    /**
-     * Pure virtual function in interface class
-     * @param string $param
-     */
-    public function typeOfFrame($param);
-}
-class MountainBike implements MotorCycleFrame
-{
-    private $brandName;
-    public function typeOfFrame($name) {
-        $brandName=$name;
-        echo "$brandName bike makes Mountain Bikes.";
-    }
-    
-}
-class RoadBike implements MotorCycleFrame
-{
-    private $brandName;
-    public function typeOfFrame($name) {
-        $brandName=$name;
-        echo "$brandName bike makes Road Bikes.";
-    }
-}
-
-$sunbaruCarFrame = new CarsFrame;
-$sunbaruCarFrame->draw('Subaru');
-
-$hondaBike = new RoadBike;
-$hondaBike->typeOfFrame('Honda');
-
-$yamahaBike = new MountainBike;
-$yamahaBike->typeOfFrame('Yamaha');
-
 ?>

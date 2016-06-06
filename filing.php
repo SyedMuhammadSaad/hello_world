@@ -1,10 +1,4 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  * Decscription: File Write Function
  * @return string
@@ -17,7 +11,7 @@ function filewrite()
     return 'File written';
 }
 /**
- * Descripton: Input filename and it will read the file.
+ * Descripton: Input file path and it will read the file.
  * @param string $path
  * @return boolean
  */

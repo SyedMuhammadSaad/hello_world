@@ -11,6 +11,10 @@
  */
 class Fruit
 {
+    /**
+     *
+     * @var string 
+     */
     private $name;
     /**
      * Getting name of Fruit
@@ -22,7 +26,7 @@ class Fruit
         return $this->name;
     }
     /**
-     * Print name
+     * Empy function
      */
     public function printname()
     {   
@@ -31,7 +35,7 @@ class Fruit
 class Apple extends Fruit
 {
     /**
-     * Getting name of Fruit
+     * Setting name of Fruit
      * @param string $n
      * @return string
      */
@@ -42,7 +46,7 @@ class Apple extends Fruit
         return $this->name;
     }
     /**
-     * Printing Name
+     * Printing Name function overridden from parent class
      */
     public function printname() 
     {
@@ -50,7 +54,7 @@ class Apple extends Fruit
         echo "I am an $this->name";
     }
     /**
-     * Printing Property
+     * Function declared in child class. Function is Printing Property of fruit.
      */
     public function fruitproperty()
     {
@@ -62,7 +66,7 @@ class Apple extends Fruit
 class Banana extends Fruit
 {
     /**
-     * Getting name of Fruit
+     * Setting name of Fruit
      * @param string $n
      * @return string
      */
@@ -73,7 +77,7 @@ class Banana extends Fruit
         return $this->name;
     }
     /**
-     * Printing Name
+     * Printing Name function overridden from parent class
      */
     public function printname() 
     {
@@ -81,7 +85,7 @@ class Banana extends Fruit
         echo "I am a $this->name";
     }
     /**
-     * Printing Property
+     * Function declared in child class. Function is Printing Property of fruit.
      */
     public function fruitproperty()
     {
@@ -89,39 +93,4 @@ class Banana extends Fruit
     }
     
 }
-
-
-$fruitapple = new Apple;
-$fruitapple->setname("Apple");
-echo "<br/>";
-$fruitapple->printname();
-echo "<br/>";
-$fruitapple->fruitproperty();
-echo "<br/>";
-
-$fruitbanana = new Banana();
-$fruitbanana->setname("Banana");
-echo "<br/>";
-$fruitbanana->printname();
-echo "<br/>";
-$fruitbanana->fruitproperty();
-echo "<br/>";
-
-echo "<br/>";
-$fruits= new Fruit;
-$fruits = array("","");
-$fruits[0]=new Apple;
-$fruits[0]->setname("Apple");
-$fruits[0]->printname();
-echo "<br/>";
-$fruits[0]->fruitproperty();
-echo "<br/>";
-
-$fruits[1]=new Banana;
-$fruits[1]->setname("Banana");
-$fruits[1]->printname();
-echo "<br/>";
-$fruits[1]->fruitproperty();
-echo "<br/>";
-
 ?>

@@ -1,0 +1,52 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Abstraction Performed
+ */
+abstract class Frame
+{
+    /**
+     * Abstract Function
+     * @param type $param
+     */
+    public function draw($param)
+    {}
+    /**
+     * Function which is not being used in any other class
+     */
+    public function buildframe()
+    {
+        echo "From Frame class!";
+    }
+}
+
+class CarsFrame extends Frame
+{
+    private $brandName;
+    /**
+     * Function being used from abstract class
+     * @param string $name
+     * @return string
+     */
+    public function draw($name) {
+        parent::draw($name);
+        $brandName=$name;
+        echo "$brandName car frame built.";
+        return $this->brandName;
+    }
+}
+
+
+
+
+
+
+
+?>
+
