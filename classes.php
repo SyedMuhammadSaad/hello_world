@@ -1,6 +1,6 @@
 <?php
 /**
- * Abstract Class
+ * Abstract Frame class
  */
 abstract class Frame
 {
@@ -18,7 +18,9 @@ abstract class Frame
         echo "From Frame class!";
     }
 }
-
+/**
+ * CarsFrame is extended from abstract Frame class
+ */
 class CarsFrame extends Frame
 {
     /**
@@ -35,7 +37,7 @@ class CarsFrame extends Frame
         parent::draw($name);
         $brandName=$name;
         echo "$brandName car frame built.";
-        return $this->brandName;
+        return $brandName;
     }
 }
 ?>

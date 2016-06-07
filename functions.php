@@ -21,8 +21,7 @@ function addintstring()
 }
 $output=addintstring();
 echo $output ;
-
-echo "<br>";
+"<br/>";
 echo "Number and Number:"; 
 
 /**

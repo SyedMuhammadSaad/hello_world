@@ -1,13 +1,7 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Inheritance implementation
+ * Inheritance implementation. Fruit class is Parent class
  */
 class Fruit
 {
@@ -32,6 +26,9 @@ class Fruit
     {   
     }
 }
+/**
+ * Child class of Fruit class
+ */
 class Apple extends Fruit
 {
     /**
@@ -62,7 +59,9 @@ class Apple extends Fruit
     }
     
 }
-
+/**
+ * Child class of Fruit class
+ */
 class Banana extends Fruit
 {
     /**

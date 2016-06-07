@@ -1,6 +1,6 @@
 <?php
 /**
- * Interface Implemented
+ * Interface Implemented. MotorCycleFrame is interface
  */
 interface MotorCycleFrame
 {
@@ -10,6 +10,9 @@ interface MotorCycleFrame
      */
     public function typeOfFrame($param);
 }
+/**
+ * MountainBike implements from MotorCycleFrame
+ */
 class MountainBike implements MotorCycleFrame
 {
     /**
@@ -29,10 +32,12 @@ class MountainBike implements MotorCycleFrame
     }
     
 }
+/**
+ * RoadBike implements from MotorCycleFrame
+ */
 class RoadBike implements MotorCycleFrame
 {
     /**
-     *
      * @var string
      */
     private $brandName;

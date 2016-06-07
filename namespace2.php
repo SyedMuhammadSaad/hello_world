@@ -4,7 +4,7 @@
  * namespace has class which is subtracting 3 and 2
  */
 namespace sub;
-class subtracting
+class calculating
 {
     /**
      * Calc function subtracting 3 and 2

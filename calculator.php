@@ -12,10 +12,10 @@ include 'namespace2.php';
  */
 function namespacechecking()
 {
-    $adding = new \add\adding;
+    $adding = new \add\calculating;
     $adding->calc();
     echo "<br>";
-    $subtracting= new \sub\subtracting;
+    $subtracting= new \sub\calculating;
     $subtracting->calc();
     return true;
 }

@@ -4,7 +4,7 @@
  * namespace has class which is adding 3 and 2
  */
 namespace add;
-class adding
+class calculating
 {
     /**
      * Calc function adding 3 and 2

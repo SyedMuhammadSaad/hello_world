@@ -1,26 +1,17 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of testIndex
- * Using Require/Include and Doing the testing
- * @author Saad
- */
-
 include 'functions.php';
 include 'databaseconnection.php';
 include 'filing.php';
 include 'calculator.php';
-include 'socket.php';
-include 'socketclient.php';
 include 'inheritance.php';
 include 'interface.php';
 include 'classes.php';
+//include 'socket.php';
+//include 'socketclient.php';
+/**
+ * This class conssists of all tests
+ */
 class testIndex extends PHPUnit_Framework_TestCase{
     //put your code here
     public function testgarbage()
@@ -53,14 +44,14 @@ class testIndex extends PHPUnit_Framework_TestCase{
     {
         $res=  connectdb('mytestdatabase1');
         $this->assertEquals('Connected with db',$res);
-        echo "In testdatabaseconnection";
+       
     }
-    /**
+     /**
      * Description: Testing the filewrite function
      */
     public function testfilewrite()
     {
-        echo "In testfilewrite";
+       
         $res=  filewrite();
         $this->assertEquals('File written',$res);
         
@@ -72,7 +63,7 @@ class testIndex extends PHPUnit_Framework_TestCase{
     {
         $res=fileread('C:\xampp\htdocs\PhpProjectHello_World\filetext.txt');
         $this->assertEquals(true,$res);
-        echo "In testfileread";
+        
     }
     /**
      * Description: Checking namespace
@@ -81,11 +72,12 @@ class testIndex extends PHPUnit_Framework_TestCase{
     {
         $res= \calculator\namespacechecking();
         $this->assertEquals(true,$res);
-        echo "In testnamespace";
+        
     }
     /**
      * Description: Server Connecting to client
      */
+    /*
     public function testsocketserver()
     {
         $res= socketserver('127.0.0.1');
@@ -95,81 +87,109 @@ class testIndex extends PHPUnit_Framework_TestCase{
     /**
      * Description: Client Connecting to seerver by ip address
      */
+    /*
     public function testsocketclient()
     {
         $res= clientsocket('127.0.0.1');
         $this->assertEquals(true,$res);
         echo "In testsocketclient";
+    }*/
+    /**
+     * Returning array of arrays to test testabstract class
+     * @return array
+     */
+    public function dataprovidertestabstract()
+    {
+        return array(array(new CarsFrame,'Subaru'),array(new CarsFrame,'Honda')
+            ,array(new CarsFrame,'Mercedes'));
+        
     }
     /**
      * Testing Abstract Class
+     * @param CarsFrame $class
+     * @param string $testvalue
+     * @dataProvider dataprovidertestabstract
      */
-    public function testabstract()
+    public function testabstract($class,$testvalue)
     {
-        $subaruCarFrame = new CarsFrame;
-        $this->assertEquals("Subaru",$subaruCarFrame->draw('Subaru'));
-        //echo "<br/>";
-        //$subaruCarFrame->buildframe();
-        //echo "<br/>";
-        echo "In testabstract";
+        $object = new $class;
+        $this->assertEquals($testvalue,$object->draw('Subaru'));
+    }
+    /**
+     * Returning array of arrays to test testInterface class
+     * @return array
+     */
+    public function providertestInterface ()
+    {
+        return array(array(new RoadBike,"Honda","Honda"),array(new RoadBike,"Yamaha","Honda")
+            ,array(new MountainBike,"Yamaha","Yamaha"),array(new MountainBike,"Honda","Yamaha"));
     }
     /**
      * Testing Interface Class
+     * @param RoadBike|MountainBike $class
+     * @param string $testvalue
+     * @param string $expected
+     * @dataProvider providertestInterface
      */
-    public function testinterface()
+    public function testinterface($class,$testvalue,$expected)
     {
-        $hondaBike = new RoadBike;
-        $this->assertEquals("Honda",$hondaBike->typeOfFrame('Honda'));
-        //echo "<br/>";
-
-        $yamahaBike = new MountainBike;
-        $this->assertEquals("Yamaha",$yamahaBike->typeOfFrame('Yamaha'));
-        //echo "<br/>";
-        echo "In testinterface";
+        $object = new $class;
+        $this->assertEquals($testvalue,$object->typeOfFrame($expected));
+    }
+    /**
+     * Returning array of arrays to test testinheritance class
+     * @return array
+     */
+    public function providertestInheritance()
+    {
+        return array(array(new Apple,"Apple","Apple"),array(new Apple,"Apple","Banana")
+            ,array(new Banana,"Banana","Banana"),array(new Banana,"Banana","Grapes"));
     }
     /**
      * Testing Inheritance
+     * @param Apple|Banana $class
+     * @param string $testvalue
+     * @param string $expected
+     * @dataProvider providertestInheritance
      */
-    public function testinheritance()
+    public function testinheritance($class,$testvalue,$expected)
     {
-        $fruitapple = new Apple;
-        $this->assertEquals("Apple",$fruitapple->setname("Apple"));
-        //echo "<br/>";
-        $fruitapple->printname();
-       // echo "<br/>";
-        $fruitapple->fruitproperty();
-        //echo "<br/>";
-
-        $fruitbanana = new Banana();
-        $this->assertEquals("Banana",$fruitbanana->setname("Banana"));
-       // echo "<br/>";
-        $fruitbanana->printname();
-        //echo "<br/>";
-        $fruitbanana->fruitproperty();
-       // echo "<br/>";
-        echo "In testinheritance";
+        $object = new $class;
+        $this->assertEquals($testvalue,$object->setname($expected));
+        $object->printname();
+        $object->fruitproperty();
+       
     }
-    
+    /**
+     * eturning array of arrays to test testpolymorphism class
+     * @return array
+     */
+    public function providertestpolymorphism()
+    {
+       // $obj=new Fruit;
+        $obj=array("Apple","Banana");
+        return array(array("$obj[0]","Apple","Apple"),array("$obj[0]","Apple","Banana")
+            ,array("$obj[1]","Banana","Banana"),array("$obj[1]","Banana","Apple"));
+    }
     /**
      * Testing Polymorphism
+     * @param Apple|Banana $class
+     * @param string $testvalue
+     * @param string $expected
+     * @dataProvider providertestpolymorphism
      */
-    public function testpolymorphism()
+    public function testpolymorphism($class,$testvalue,$expected)
     {
-        $fruits= new Fruit;
-        $fruits = array("","");
-        $fruits[0]=new Apple;
-        $this->assertEquals("Apple",$fruits[0]->setname("Apple"));
-        $fruits[0]->printname();
-        //echo "<br/>";
-        $fruits[0]->fruitproperty();
-        //echo "<br/>";
-
-        $fruits[1]=new Banana;
-        $this->assertEquals("Banana",$fruits[1]->setname("Banana"));
-        $fruits[1]->printname();
-        //echo "<br/>";
-        $fruits[1]->fruitproperty();
-        //echo "<br/>";
-        echo "In testpolymorphism";
+        //$object= new Fruit;
+        $object = array(count($class));
+        for($i=0;$i<count($class);$i++)
+        {
+            $object[$i]=new $class;
+            $this->assertEquals($testvalue,$object[$i]->setname($expected));
+            $object[$i]->printname();
+            $object[$i]->fruitproperty();
+        }  
     }
 }
+
+?>
