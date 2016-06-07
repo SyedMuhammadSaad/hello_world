@@ -7,10 +7,12 @@ include 'calculator.php';
 include 'inheritance.php';
 include 'interface.php';
 include 'classes.php';
+include 'FactoryMethod.php';
+include 'Singleton.php';
 //include 'socket.php';
 //include 'socketclient.php';
 /**
- * This class conssists of all tests
+ * This class consists of all tests
  */
 class testIndex extends PHPUnit_Framework_TestCase{
     //put your code here
@@ -190,6 +192,43 @@ class testIndex extends PHPUnit_Framework_TestCase{
             $object[$i]->fruitproperty();
         }  
     }
+    /**
+     * Returning array of arrays to test Factory Method
+     * @return array
+     */
+    public function providertestFactMethPat()
+    {
+        return array(array("SuperMan",2,"Toy Soldier SuperMan"),array("Mercedes",1,"Toy Car Mercedes")
+            ,array("Tweety",3,"Toy Stuff Tweety"),array("Mercedes",2,"Toy Car Mercedes"));
+    }
+    /**
+     * Testing FactoryMethod
+     * @param string $name
+     * @param integer $option
+     * @param string $expectresult
+     * @dataProvider providertestFactMethPat
+     */
+    public function testFactMethPat($name,$option,$expectresult)
+    {
+        $object=ToyFactory::create($name, $option);
+        $this->assertEquals($expectresult,$object->getname());
+        echo $object->getname();
+    }
+    
+    public function providertestSingletonPattern()
+    {
+        $object=null;
+        return array(array($object),array($object));
+    }
+    /**
+     * 
+     * @param object $obj
+     * @dataProvider providertestSingletonPattern
+     */
+    public function testSingletonPattern($obj)
+    {
+        $obj=  Singleton::getObject();
+        $this->assertEquals($obj,  $obj);
+    }
 }
-
 ?>
