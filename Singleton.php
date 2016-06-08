@@ -26,6 +26,18 @@ class Singleton
         }
         return false;
     }
+    /**
+     * __clone function is left empty so when called it cannot do any working
+     */
+    private function __clone() 
+    {    
+    }
+    /**
+     * __wakeup function is left empty so when called it cannot do any working
+     */
+    private function __wakeup() 
+    {
+    }
 }
 
 ?>
