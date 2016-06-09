@@ -1,4 +1,7 @@
 <?php
+/**
+ * Client Socket implemented here.
+ */
 
 global $check;
 error_reporting(E_ALL);

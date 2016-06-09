@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Calculator file is using namespaces whcih are namespace1 and namespace2.
+ */
 
 
 namespace calculator;

@@ -1,4 +1,8 @@
 <?php
+/**
+ * Server Socket implemented here.
+ */
+
 
 error_reporting(E_ALL);
 
@@ -11,7 +15,7 @@ ob_implicit_flush();
 global $check;
 /**
  * Server connection formed with client.
- * @param string $ip
+ * @param string $ip ip is passed here or default ip is taken.
  * @return boolean
  */
 function socketserver($ip='127.0.0.1')

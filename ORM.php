@@ -38,7 +38,7 @@ class Model
         return $this->id;
     }
     /**
-     * user getter
+     * username getter
      * @return string
      */
     function getUser() 
@@ -62,7 +62,7 @@ class Model
         $this->id = $id;
     }
     /**
-     * user setter
+     * username setter
      * @param string $user user name
      */
     function setUser($user) {
@@ -83,12 +83,19 @@ class Model
 class DB
 {
     /**
+     * Empty constructor
+     */
+    private function __construct()
+    {    
+    }
+    /**
      *connection made to connect to database
      * @var PhpPlatform 
      */
     private static $connection=null;
     /**
      * connect() connects with database
+     * @return PhpPlatform
      */
     public static function connect()
     {
@@ -102,6 +109,7 @@ class DB
             self::$connection=mysql_connect($mysql_host, $mysql_user, $mysql_pass);
             mysql_select_db($mysql_db);
         }
+        return self::$connection;
     }
     /**
      * runquery() executes the query.
@@ -156,6 +164,9 @@ class DB
             return false;
         }
     }
+    /**
+     * Select all table
+     */
     public function selecttable()
     {
         $select_query="SELECT * FROM testuser";

@@ -3,7 +3,9 @@
  * A child class uses traits OutdoorGame and IndoorGame
  */
 
-
+/**
+ * A child class uses traits OutdoorGame and IndoorGame
+ */
 include 'mixin.php';
 
 /**
@@ -15,13 +17,13 @@ class Child
     use IndoorGame;
     
     /**
-     *Name of a child.
-     * @var string 
+     *
+     * @var string Name of a child.
      */
     private $name;
     /**
-     * Checking if mixin works.
-     * @var boolean
+     * 
+     * @var boolean Checking if mixin works.
      */
     private $bool=false;
     /**
@@ -36,6 +38,10 @@ class Child
         echo IndoorGame::playinginside();
         $this->bool=true;
     }
+    /**
+     * This function is used to perform test case. Returns true if playtime function is executed.
+     * @return boolean
+     */
     public function check()
     {
         return $this->bool;

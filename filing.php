@@ -1,5 +1,9 @@
 <?php
 /**
+ * Filing is implemented here.
+ */
+
+/**
  * Decscription: File Write Function
  * @return string
  */

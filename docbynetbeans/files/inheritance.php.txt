@@ -1,24 +1,21 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Inheritance between Fruit and its child Apple and Banana is created here.
  */
 
 /**
- * Inheritance implementation
+ * Inheritance implementation. Fruit class is Parent class
  */
 class Fruit
 {
     /**
      *
-     * @var string 
+     * @var string Fruit name goes here. 
      */
     private $name;
     /**
      * Getting name of Fruit
-     * @param string $n
+     * @param string $n Name of fruit is passed to set.
      * @return string
      */
     public function setname($n) {
@@ -32,11 +29,14 @@ class Fruit
     {   
     }
 }
+/**
+ * Child class of Fruit class
+ */
 class Apple extends Fruit
 {
     /**
      * Setting name of Fruit
-     * @param string $n
+     * @param string $n Name of fruit is passed to set.
      * @return string
      */
     public function setname($n) 
@@ -62,12 +62,14 @@ class Apple extends Fruit
     }
     
 }
-
+/**
+ * Child class of Fruit class
+ */
 class Banana extends Fruit
 {
     /**
      * Setting name of Fruit
-     * @param string $n
+     * @param string $n Name of fruit is passed to set.
      * @return string
      */
     public function setname($n) 

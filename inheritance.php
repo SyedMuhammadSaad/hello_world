@@ -1,4 +1,7 @@
 <?php
+/**
+ * Inheritance between Fruit and its child Apple and Banana is created here.
+ */
 
 /**
  * Inheritance implementation. Fruit class is Parent class
@@ -7,12 +10,12 @@ class Fruit
 {
     /**
      *
-     * @var string 
+     * @var string Fruit name goes here. 
      */
     private $name;
     /**
      * Getting name of Fruit
-     * @param string $n
+     * @param string $n Name of fruit is passed to set.
      * @return string
      */
     public function setname($n) {
@@ -33,7 +36,7 @@ class Apple extends Fruit
 {
     /**
      * Setting name of Fruit
-     * @param string $n
+     * @param string $n Name of fruit is passed to set.
      * @return string
      */
     public function setname($n) 
@@ -66,7 +69,7 @@ class Banana extends Fruit
 {
     /**
      * Setting name of Fruit
-     * @param string $n
+     * @param string $n Name of fruit is passed to set.
      * @return string
      */
     public function setname($n) 

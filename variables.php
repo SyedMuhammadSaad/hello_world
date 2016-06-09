@@ -1,4 +1,8 @@
 <?php
+/**
+ * Type casting and concatination is checked. Assigning same variables different values to change its data type.
+ */
+
 $var0=5;
 $var2=16;
 $var3=5;

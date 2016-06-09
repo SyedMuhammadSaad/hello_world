@@ -1,5 +1,9 @@
 <?php
 /**
+ * Abstract classes are implemented here.
+ */
+
+/**
  * Abstract Frame class
  */
 abstract class Frame
@@ -24,7 +28,7 @@ abstract class Frame
 class CarsFrame extends Frame
 {
     /**
-     *
+     *Name of brand goes here.
      * @var string
      */
     private $brandName;

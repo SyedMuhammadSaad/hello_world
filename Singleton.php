@@ -1,10 +1,16 @@
 <?php
+/**
+ * Singleton class is implemented here.
+ */
 
+/**
+ * Singleton class making object only once
+ */
 class Singleton
 {
     /**
      *
-     * @var Singleton
+     * @var Singleton $object of any type is made only once.
      */
     private static $object;
     /**
@@ -39,6 +45,5 @@ class Singleton
     {
     }
 }
-
 ?>
 

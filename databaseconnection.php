@@ -1,5 +1,13 @@
-<?php       
+<?php
+/**
+ *  This file is connecting with database and its test is performed in testIndex.php
+ */
 
+/**
+ * Connecting with Databse
+ * @param string $dbname Requires database name with which to connect.
+ * @return string
+ */
 function connectdb($dbname)
 {
     $mysql_host='localhost';

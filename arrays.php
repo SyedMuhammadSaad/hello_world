@@ -1,4 +1,7 @@
 <?php
+/**
+ * Dynamic arrays implemented here.
+ */
 
 $array = array("red","green","blue");
 array_push($array, "black");
@@ -15,4 +18,6 @@ var_dump($array);
 $multarray = array(array("laptop","mobile"),array("sword","shield"));//multidimensional array
 echo "<br>";
 var_dump($multarray);
+echo "<br>";
+echo $multarray[0][1];
 ?>

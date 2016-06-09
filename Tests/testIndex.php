@@ -1,7 +1,11 @@
 <?php
+/**
+ * All tests are performed in this file
+ */
 
-define('ROOTPATH','C:\xampp\htdocs\PhpProjectHello_World');
-
+/**
+ * All tests are performed in this file
+ */
 include '../functions.php';
 require '../databaseconnection.php';
 include '../filing.php';
@@ -12,13 +16,18 @@ include '../classes.php';
 include '../FactoryMethod.php';
 require '../Singleton.php';
 include '../mixinused.php';
+include '../ORM.php';
+include '../DBAL.php';
 //include 'socket.php';
 //include 'socketclient.php';
 /**
  * This class consists of all tests
  */
 class testIndex extends PHPUnit_Framework_TestCase{
-    //put your code here
+    
+    /**
+     * Intital test performed.
+     */
     public function testgarbage()
     {
         $a = 'Hello';
@@ -166,7 +175,7 @@ class testIndex extends PHPUnit_Framework_TestCase{
        
     }
     /**
-     * eturning array of arrays to test testpolymorphism class
+     * Returning array of arrays to test testpolymorphism class
      * @return array
      */
     public function providertestpolymorphism()
@@ -217,14 +226,17 @@ class testIndex extends PHPUnit_Framework_TestCase{
         $this->assertEquals($expectresult,$object->getname());
         echo $object->getname();
     }
-    
+    /**
+     * Returning array of arrays to test Singleton Design Pattern
+     * @return array
+     */
     public function providertestSingletonPattern()
     {
         $object=null;
         return array(array($object),array($object));
     }
     /**
-     * 
+     * object is made to test singleton pattern
      * @param mixed $obj
      * @dataProvider providertestSingletonPattern
      */
@@ -252,6 +264,51 @@ class testIndex extends PHPUnit_Framework_TestCase{
         $object=new $class;
         $object->playtime("Messi");
         $this->assertEquals($bool,$object->check());
+    }
+    /**
+     * Returning array of arrays to test testORM
+     * @return array
+     */
+    public function providertestORM()
+    {
+        return array(array(8,"Akram",47000));
+    }
+    /**
+     * Testing ORM
+     * @param int $id1 userid
+     * @param string $user1 username
+     * @param int $salary1 usersalary
+     * @dataProvider providertestORM
+     */
+    public function testORM($id1,$user1,$salary1)
+    {
+        $model = new Model;
+        $model->setId($id1);
+        $id=$model->getId();
+        $model->setUser("$user1");
+        $user=$model->getUser();
+        $model->setSalary($salary1);
+        $salary=$model->getSalary();
+        $this->assertEquals(true,DB::inserttable($id, $user, $salary));
+    }
+    /**
+     * Returning array of arrays to test testDBAL
+     * @return array
+     */
+    public function providertestDBAL()
+    {
+        return array(array('user',"Hamid","Asad"),array('salary',40000,45000));
+    }
+    /**
+     * Update table of DBAL
+     * @param string $col column/attribute name
+     * @param mixed $newvalue
+     * @param mixed $where
+     * @dataProvider providertestDBAL
+     */
+    public function testDBAL($col,$newvalue,$where)
+    {
+        $this->assertEquals(true,DBAl::updatetable($col,$newvalue,$where));
     }
 }
 ?>
