@@ -1,6 +1,6 @@
 <?php
 /**
- * ORM is implemented here
+ * DBAL is implemented here
  */
 
 /**
